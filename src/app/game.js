@@ -18,15 +18,33 @@ const goRight = ['right2', 'right1', 'right2', 'right3'];
 
 
 let manX = 0;
+let manY = ctxDOM.height - 60;
 
-let changeX = 20;
+let changeX = 10;
 
 const draw = ()=> {
-  let { leftPressed, rightPressed } = getKeys();
+  let { leftPressed, rightPressed, topPressed, bottomPressed } = getKeys();
   ctx.clearRect(0, 0, ctxDOM.width, ctxDOM.height);
 
   ctx.fillRect(0, 0, ctxDOM.width, ctxDOM.height);
   ctx.fillStyle = 'rgba(0,0,0,0.3)';
+
+  console.log(topPressed, bottomPressed);
+
+  if (topPressed) {
+    if (manY != 60) {
+      manY = manY - 10;
+    }
+  }
+
+  if (bottomPressed) {
+    if (manY < 260) {
+      manY = manY + 10;
+    }
+  }
+
+  console.log(manY);
+
 
   if (rightPressed) {
     step++;
@@ -38,7 +56,7 @@ const draw = ()=> {
       manX = manX + changeX;
     }
 
-    ctx.drawImage(man[goRight[step]], manX, ctxDOM.height - 60, 40, 60);
+    ctx.drawImage(man[goRight[step]], manX, manY, 40, 60);
     stay = 'stay';
   }
 
@@ -52,18 +70,18 @@ const draw = ()=> {
       manX = manX - changeX;
     }
 
-    ctx.drawImage(man[goLeft[step]], manX, ctxDOM.height - 60, 40, 60);
+    ctx.drawImage(man[goLeft[step]], manX, manY, 40, 60);
     stay = 'stayLeft';
   }
 
   if (!leftPressed && !rightPressed) {
     step = 0;
-    ctx.drawImage(man[stay], manX, ctxDOM.height - 60, 40, 60);
+    ctx.drawImage(man[stay], manX, manY, 40, 60);
   }
   
   index++;
 };
 
 export const start = ()=> {
-  setInterval(draw, 500);
+  setInterval(draw, 100);
 }
