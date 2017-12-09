@@ -19,6 +19,8 @@ const goRight = ['right2', 'right1', 'right2', 'right3'];
 
 let manX = 0;
 
+let changeX = 20;
+
 const draw = ()=> {
   let { leftPressed, rightPressed } = getKeys();
   ctx.clearRect(0, 0, ctxDOM.width, ctxDOM.height);
@@ -33,7 +35,7 @@ const draw = ()=> {
     };
 
     if (manX < ctxDOM.width - 40) {
-      manX = manX + 10;
+      manX = manX + changeX;
     }
 
     ctx.drawImage(man[goRight[step]], manX, ctxDOM.height - 60, 40, 60);
@@ -47,7 +49,7 @@ const draw = ()=> {
     };
 
     if (manX != 0) {
-      manX = manX - 10;
+      manX = manX - changeX;
     }
 
     ctx.drawImage(man[goLeft[step]], manX, ctxDOM.height - 60, 40, 60);
@@ -63,5 +65,5 @@ const draw = ()=> {
 };
 
 export const start = ()=> {
-  setInterval(draw, 100);
+  setInterval(draw, 500);
 }
