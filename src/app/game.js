@@ -29,8 +29,6 @@ const draw = ()=> {
   ctx.fillRect(0, 0, ctxDOM.width, ctxDOM.height);
   ctx.fillStyle = 'rgba(0,0,0,0.3)';
 
-  console.log(topPressed, bottomPressed);
-
   if (topPressed) {
     if (manY != 60) {
       manY = manY - 10;
@@ -76,7 +74,7 @@ const draw = ()=> {
 
   if (!leftPressed && !rightPressed) {
     step = 0;
-    ctx.drawImage(man[stay], manX, manY, 40, 60);
+    ctx.drawImage(man[stay], manX, manY, 100, 100);
   }
   
   index++;
