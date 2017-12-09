@@ -21,6 +21,10 @@ let manX = 0;
 
 const draw = ()=> {
   let { leftPressed, rightPressed } = getKeys();
+  ctx.clearRect(0, 0, ctxDOM.width, ctxDOM.height);
+
+  ctx.fillRect(0, 0, ctxDOM.width, ctxDOM.height);
+  ctx.fillStyle = 'rgba(0,0,0,0.3)';
 
   if (rightPressed) {
     step++;
@@ -32,7 +36,6 @@ const draw = ()=> {
       manX = manX + 10;
     }
 
-    ctx.clearRect(0, 0, ctxDOM.width, ctxDOM.height);
     ctx.drawImage(man[goRight[step]], manX, ctxDOM.height - 60, 40, 60);
     stay = 'stay';
   }
@@ -47,14 +50,12 @@ const draw = ()=> {
       manX = manX - 10;
     }
 
-    ctx.clearRect(0, 0, ctxDOM.width, ctxDOM.height);
     ctx.drawImage(man[goLeft[step]], manX, ctxDOM.height - 60, 40, 60);
     stay = 'stayLeft';
   }
 
   if (!leftPressed && !rightPressed) {
     step = 0;
-    ctx.clearRect(0, 0, ctxDOM.width, ctxDOM.height);
     ctx.drawImage(man[stay], manX, ctxDOM.height - 60, 40, 60);
   }
   
