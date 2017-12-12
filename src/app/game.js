@@ -18,7 +18,7 @@ const goRight = ['right2', 'right1', 'right2', 'right3'];
 
 
 let manX = 0;
-let manY = ctxDOM.height - 60;
+let manY = ctxDOM.height - 120;
 
 let changeX = 10;
 
@@ -74,7 +74,7 @@ const draw = ()=> {
 
   if (!leftPressed && !rightPressed) {
     step = 0;
-    ctx.drawImage(man[stay], manX, manY, 100, 100);
+    ctx.drawImage(man[stay], manX, manY);
   }
   
   index++;

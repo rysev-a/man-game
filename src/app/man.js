@@ -7,8 +7,9 @@ const left1 = new Image();
 const left2 = new Image();
 const left3 = new Image();
 
-stay.src = '/img/man/stay.png';
-stayLeft.src = '/img/man/stay-left.png';
+
+stay.src = '/img/man/man.png';
+stayLeft.src = '/img/man/man.png';
 
 left1.src = '/img/man/left-1.png';
 left2.src = '/img/man/left-2.png';
