@@ -1,6 +1,4 @@
 /node_modules
 /public
 /.idea
-/source/app/settings.js
-/webpack.local.js
-deploy/*.retry
+/.DS_Store
